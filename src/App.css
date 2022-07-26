@@ -1,38 +1,122 @@
-.App {
-  text-align: center;
+*{
+  margin:0px;
+  box-sizing: border-box;
+  font-family: monospace ;
+  font-weight:lighter;
+  
+}
+:root{
+  --main-bg-color: rgb(240,240,240);
+  --topic-cooking-bg-color : rgba(255,0,0,0.3);
+  --topic-coding-bg-color : rgba(0,255,0,0.3);
+  --topic-football-bg-color : rgba(0,0,255,0.3);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* MOBILE */
+
+@media (max-width: 420px){
+  *{
+    font-size: small;
+  }
+
+  .nav{
+    background-color: var(--main-bg-color);
+    height : 40px;
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+    color: black;
+  }
+
+  .nav *:visited{
+    color :black;
+  }
+
+  .page-header-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    height: 90px;
+  }
+
+  .articles-holder{
+    display: grid;
+    grid-template-columns: 1fr ;
+    background : var(--main-bg-color);
+   
+  }
+
+  .article-preview-container{
+    background: rgb(240,240,240);
+    padding : 5px;
+    /* margin: 10px; */
+    border-top : 1px rgba(20, 20, 20, 0.2) solid;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    
+  }
+  
+  .article-preview-container:hover{
+    background: rgba(200, 200, 200,0.2);
+  }
+  .article-holder{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding : 5px;
+  }
+  .article-child-container{
+    /* background : darkgray; */
+    margin : 0px;
+  }
+  .article-img-holder{
+    width : 150px;
+    height:100px;
+    background: rgba(150,150,150,0.2);
+  }
+  /* topics */
+  .topic-cooking{
+    background : var(--topic-cooking-bg-color); 
+  }
+  .topic-coding{
+    background :var(--topic-coding-bg-color); 
+  }
+  .topic-football{
+    background : var(--topic-football-bg-color); 
+  }
+  .author-and-created_at-holder{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .comment-and-votes-holder{
+    width : 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+ 
+  .article-title-container{
+    font-weight:bold;
+  }
+  .article-topic-container{
+  
+  }
+
+  .article-author-container{
+   
+  }
+  .article-created_at-container{
+    
+    
+  }
+  .article-comment_count-container{
+
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
