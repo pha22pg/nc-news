@@ -13,3 +13,12 @@ export function getListOfArticles(){
 }
 
 
+export function getArticleByID(id){
+    return newsAPI.get(`articles/${id}`).then(({data})=>{
+        console.log("In the API / getArticleByID function - data: ", data)
+        return data.article;
+    }) 
+}
+
+
+
