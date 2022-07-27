@@ -10,6 +10,8 @@
   --topic-cooking-bg-color : rgba(255,0,0,0.3);
   --topic-coding-bg-color : rgba(0,255,0,0.3);
   --topic-football-bg-color : rgba(0,0,255,0.3);
+  --img-default-bg: rgba(250,150,150,0.2);
+  --article-default-component-bg: rgba(210,210,210,0.5);
 }
 
 
@@ -78,7 +80,8 @@
   .article-img-holder{
     width : 150px;
     height:100px;
-    background: rgba(150,150,150,0.2);
+    
+    background : var(--img-default-bg); 
   }
   /* topics */
   .topic-cooking{
@@ -158,3 +161,116 @@
   border-left: 1px solid rgba(20,20,20,0.3);
   position: relative;
 }
+
+/* STYLING FOR FULL ARTICLE */
+
+/* .full-article-page-grid{
+  display:grid;
+  background: lightgrey;
+  
+ 
+  width : auto;
+ margin :5px;
+
+} */
+.full-article-container{
+  /* background: darkgrey; */
+  background : rgba(200,200,200,0.3);
+  margin : 5px;
+  /* grid-template-columns: 2fr 1fr  ; */
+
+}
+
+
+
+
+/* 1ST ROW OF ARTICLE GRID  */
+
+.full-article-title-and-article_id-holder{
+  display: grid;
+  height: 30px;
+  grid-template-columns: 8fr 1fr;
+}
+.full-article-title-holder{
+  background : var(--article-default-component-bg);  
+  font-weight: bolder;
+  padding-left : 10px;
+  display: flex;
+  align-items : center;
+  margin: 5px;
+}
+.full-article-article_id-holder{
+  background : lightgreen;
+  display:flex;
+  justify-content: center;
+  align-items : center;
+  margin:5px;
+}
+
+/* 2ND ROW OF ARTICLE GRID  */
+.ffull-article-img-holder-outer{
+  display: grid;
+  grid-template-columns: 1fr;
+  
+}
+
+.full-article-img-holder-inner{
+  background: var(--img-default-bg);
+  height : 200px;
+  width : auto;
+  border : 1px black solid;
+  margin : 10px;
+}
+.full-article-topic-container{
+  width : auto;
+  padding : 10px;
+  display: inline-block;
+  position: relative;
+  left : 10px;
+  top:10px;
+}
+
+/* 2ND ROW OF ARTICLE GRID  */
+.full-article-article-body-holder{
+  display: grid;
+  grid-template-columns: 1fr;
+  
+}
+.full-article-body{
+  background : var(--article-default-component-bg);  
+  padding : 10px;
+  align-items : center;
+  
+  margin: 5px;
+}
+/* 4TH ROW OF ARTICLE GRID  */
+
+
+.full-article-created_at-and-author-holder{
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  
+}
+.full-article-author-holder{
+  padding-left : 10px;
+  background : var(--article-default-component-bg);  
+  display: flex;
+  align-items : center;
+  margin :5px;
+}
+.full-article-created_at-holder{
+  background : var(--article-default-component-bg);  
+  margin :5px;
+}
+
+/* RELATED ARTICLES CONTAINER */
+.related-articles-container{
+  display:grid;
+  background: darkgrey;
+  height : 100px;
+  
+  grid-template-columns: 1fr 1fr 1fr ;
+  grid-template-rows: 1fr 3fr 1fr;
+  border : black 1px solid;
+}
+/*COMMENTS CONTAINER*/
