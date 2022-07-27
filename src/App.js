@@ -1,7 +1,7 @@
 import './App.css';
 import Nav  from './components/Nav';
 import {useEffect, useState} from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useParams} from 'react-router-dom';
 
 import Home from './components/Home';
 import Topics from './components/Topics';
@@ -27,7 +27,7 @@ function App() {
       <Routes>
         
         <Route path="/" element={<Home />} />
-        <Route path="/topics" element={<Topics />} />
+        <Route path="/topics/:topic_slug" element={<Topics/>} />
         <Route path="/articles" element={<Articles allArticles={allArticles} setAllArticles={setAllArticles} />} />
         <Route path="/users" element={<Users />} />
         
