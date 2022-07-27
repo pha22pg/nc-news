@@ -16,6 +16,7 @@ const Topics = () => {
     console.log("topic_slug: ", topic_slug)
     
     useEffect(() => {
+        setLoading(true);
         getArticlesByTopic(topic_slug)
         .then((data)=>{
             console.log(data)
