@@ -21,4 +21,9 @@ export function getArticleByID(id){
 }
 
 
-
+export function getArticlesByTopic(topic){
+    return newsAPI.get(`articles?topic=${topic}`).then(({data})=>{
+        console.log("In the API / getArticlesByTopic function - data: ", data)
+        return data;
+    }) 
+}
