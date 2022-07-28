@@ -358,14 +358,23 @@
 
 }
 .full-article-up-votes-container{
-  background : rgba(0,255,0,0.9);
+  background : rgba(0,255,0,0.6);
   width : 20px;
   height :20px;
   margin:5px;
 }
 .full-article-down-votes-container{
-  background : rgba(255, 0, 0, 0.9);
+  background : rgba(255, 0, 0,0.5);
   width : 20px;
   height :20px;
   margin:5px;
+}
+
+.full-article-up-votes-container.selected{
+  border :black 2px solid;
+  background : rgba(0,255,0,0.9);
+}
+.full-article-down-votes-container.selected{
+  border : black 2px solid;
+  background : rgba(255, 0, 0, 0.9);
 }

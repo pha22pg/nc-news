@@ -35,7 +35,6 @@ function App() {
   return  (
   <BrowserRouter>
   <UserContext.Provider value={{user, setUser}}>
-    {console.log("user: ", user)}
     <div className="App">
       <Nav/>
       <Routes>

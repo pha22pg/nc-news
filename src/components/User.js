@@ -7,7 +7,6 @@ import { getUserByName } from '../api.js';
 
 const User = () => {
     const { username_slug } = useParams();
-
     const { user, setUser } = useContext(UserContext);
     const [loading, setLoading] = useState(true);
 

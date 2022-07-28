@@ -43,8 +43,14 @@ export function getAllUsersByName(usernameArray){
 }
 
 export function incrementArticleVotesBy1(articleID){
-    return newsAPI.patch(`articles/${articleID}`,{ votes: 1 } ).then(({data})=>{
+    return newsAPI.patch(`articles/${articleID}`,{ inc_votes : 1 } ).then(({data})=>{
         console.log("In the API / incrementArticleVotesBy1 - data: ", data)
         return data;
     }) 
+}
+export function decrementArticleVotesBy1(articleID){
+    return newsAPI.patch(`articles/${articleID}`,{ inc_votes : -1 } ).then(({data})=>{
+        console.log("In the API / incrementArticleVotesBy1 - data: ", data)
+        return data;
+    })
 }
