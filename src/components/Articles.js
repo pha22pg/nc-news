@@ -1,7 +1,8 @@
 import React from 'react';
 
 import { useContext, useEffect,useState} from 'react';
-import { UserContext } from '../App.js';
+// import { UserContext } from '../App.js';
+import { UserContext } from './UserContext.js';
 
 import {getArticleByID, getListOfArticles} from '../api';
 import ArticleCard from './ArticleCard'

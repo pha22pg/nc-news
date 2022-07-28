@@ -1,9 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route,useParams } from 'react-router-dom';
 import { useContext, useState, useEffect} from 'react';
-import { UserContext } from '../App.js';
+// import { UserContext } from '../App.js';
+import { UserContext } from './UserContext.js';
 import {Link} from "react-router-dom";
 import {getArticleByID} from '../api';
+import {incrementArticleVotesBy1} from '../api';
 
 const Article = () => {
     const { user, setUser } = useContext(UserContext);
@@ -21,6 +23,10 @@ const Article = () => {
             setLoading(false)
         })
     }, [article_slug])
+
+    const incrementVotes = () => {
+        incrementArticleVotesBy1(article);
+    }
 
     return (<div>
 
@@ -77,8 +83,13 @@ const Article = () => {
                         {article.created_at.split('T')[0]}
                     </div>
                 </div>
+                <div className="full-article-votes-container">
+                    <div className="full-article-vote-count-container"> Votes: {article.votes}</div>
+                    <div onClick={incrementVotes} className="full-article-up-votes-container"></div>
+                    <div className="full-article-down-votes-container"></div>
+                </div>
             </div>
-            
+       
 
         </div>
         </>

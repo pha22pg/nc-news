@@ -32,6 +32,20 @@
     
   }
 
+  .nav-item{
+    background:white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width : 100%;
+   
+    position: relative;
+  }
+  
+
+
+
 
 
   .nav *:visited{
@@ -151,16 +165,6 @@
   background: rgba(23,23,23,0.3);
 }
 
-.nav-item{
-  background:white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  width : 100%;
-  border-left: 1px solid rgba(20,20,20,0.3);
-  position: relative;
-}
 
 /* STYLING FOR FULL ARTICLE */
 
@@ -274,3 +278,94 @@
   border : black 1px solid;
 }
 /*COMMENTS CONTAINER*/
+
+/* USER PROFILE */
+
+.user-container{
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-gap: 20px;
+  margin: 20px;
+}
+
+.user-profile-container{
+ 
+  height : 150px;
+  padding : 20px;
+  width : 150px;
+  background : red;
+  display : grid;
+  grid-template-columns: 1fr;
+  grid-template-rows:  auto 1fr 1fr;
+  border-radius: 25%;
+}
+
+.user-profile-avatar-holder{
+  display : grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-profile-avatar{
+  justify-content: center;
+  align-items: center;
+  width : 50px;
+  height:50px;
+  border-radius: 50%;
+}
+.user-profile-avatar-mini{
+  justify-content: center;
+  align-items: center;
+  width : 40px;
+  height:40px;
+  border-radius: 30%;
+}
+
+  
+.user-icon-holder{
+  display: grid;
+  align-items: center;
+  justify-content: center;
+
+}
+.user-icon-mini{
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  height :45px;
+  width:45px;
+  background:black;
+  
+  border-radius: 30%;
+}
+
+.user-profile-name, .user-profile-username{
+  padding : 10px;
+  text-align: center;
+  
+}
+
+.full-article-votes-container{
+  padding-left : 10px;
+  background : var(--article-default-component-bg);  
+  display: flex;
+  align-items : center;
+  justify-content: flex-end;
+  margin :5px;
+}
+.full-article-vote-count-container{
+
+}
+.full-article-up-votes-container{
+  background : rgba(0,255,0,0.9);
+  width : 20px;
+  height :20px;
+  margin:5px;
+}
+.full-article-down-votes-container{
+  background : rgba(255, 0, 0, 0.9);
+  width : 20px;
+  height :20px;
+  margin:5px;
+}

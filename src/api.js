@@ -23,7 +23,28 @@ export function getArticleByID(id){
 
 export function getArticlesByTopic(topic){
     return newsAPI.get(`articles?topic=${topic}`).then(({data})=>{
-        console.log("In the API / getArticlesByTopic function - data: ", data)
+       // console.log("In the API / getArticlesByTopic function - data: ", data)
+        return data;
+    }) 
+}
+
+export function getUserByName(username){
+    return newsAPI.get(`users/${username}`).then(({data})=>{
+       // console.log("In the API / getUserByName function - data: ", data)
+        return data.user;
+    }) 
+}
+
+export function getAllUsersByName(usernameArray){
+    return axios.all(usernameArray.map((username)=> newsAPI.get(`users/${username}`)))
+        .then((data)=>{
+           return data.map( userData => userData.data.user)
+        })
+}
+
+export function incrementArticleVotesBy1(articleID){
+    return newsAPI.patch(`articles/${articleID}`,{ votes: 1 } ).then(({data})=>{
+        console.log("In the API / incrementArticleVotesBy1 - data: ", data)
         return data;
     }) 
 }
