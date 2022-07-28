@@ -6,6 +6,7 @@ import { UserContext } from './UserContext.js';
 import {Link} from "react-router-dom";
 import {getArticleByID} from '../api';
 import {incrementArticleVotesBy1, decrementArticleVotesBy1} from '../api';
+import Comments from './Comments';
 
 const Article = () => {
     const { user, setUser } = useContext(UserContext);
@@ -132,6 +133,7 @@ const Article = () => {
                 </div>
             </div>
        
+        <Comments comment_count={article.comment_count} article_id={article.article_id}/>
 
         </div>
         </>

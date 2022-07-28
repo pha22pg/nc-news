@@ -54,3 +54,10 @@ export function decrementArticleVotesBy1(articleID){
         return data;
     })
 }
+
+export function getCommentsByArticleID(articleID){
+    return newsAPI.get(`articles/${articleID}/comments`).then(({data})=>{
+        // console.log("In the API / getUserByName function - data: ", data)
+         return data;
+     }) 
+}

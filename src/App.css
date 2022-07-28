@@ -378,3 +378,62 @@
   border : black 2px solid;
   background : rgba(255, 0, 0, 0.9);
 }
+
+/* COMMENT CARD */
+
+.comment-count-holder{
+  background : rgba(100,100,100,0.3);
+  margin : 5px;
+  padding : 5px;
+}
+.comment-card-holder{
+  background : rgba(100,100,100,0.3);
+  margin : 5px;
+  padding : 5px;
+}
+.comment-card{
+  background : rgba(100,100,100,0.3);
+  margin : 5px;
+  padding : 5px;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+}
+.comment-card-img{
+  background : grey;
+  height :50px;
+  width : 50px;
+}
+.comment-card-created_at{
+  background : rgba(100,100,100,0.3);
+  margin : 5px;
+  padding : 5px;
+}
+.comment-card-author{
+  background : rgba(100,100,100,0.3);
+  margin : 5px;
+  padding : 5px;
+}
+.comment-card-body{
+  background : rgba(100,100,100,0.3);
+  margin : 5px;
+  padding : 5px;
+}
+.comment-card-votes{
+  background : rgba(100,100,100,0.3);
+  margin : 5px;
+  padding : 5px;
+}
+.comment-card-comment_id{
+  background : rgba(100,100,100,0.3);
+  margin : 5px;
+  padding : 5px;
+}
+
+.comment-card-author-and-created_at-holder{
+  display : flex;
+  justify-content: space-between;
+}
+.comment-card-votes-and-comment_id-holder{
+  display : flex;
+  justify-content: flex-end;
+}
