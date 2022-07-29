@@ -1,6 +1,7 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
 import {getCommentsByArticleID} from '../api'
+import AddComment from './AddComment';
 
 const Comments = ({comment_count, article_id}) => {
     const [comments, setComments]   = useState([])
@@ -18,6 +19,7 @@ const Comments = ({comment_count, article_id}) => {
     return (<>
         {loading && <div> Loading... </div> }
         <div className="comment-count-holder">Comments: {comment_count}</div> 
+        <AddComment/>
         <div className="comment-card-holder">
             {!loading && <div> 
                 
