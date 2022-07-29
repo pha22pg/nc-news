@@ -21,10 +21,6 @@ const Articles = ({allArticles, setAllArticles}) => {
             setAllArticles(data)
             setLoading(false);
         })
-        getArticleByID(1)
-        .then((data)=>{
-            console.log(data);
-        })
     }, [])
 
 

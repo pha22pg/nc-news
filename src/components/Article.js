@@ -114,9 +114,9 @@ const Article = () => {
                 </div>
                 <div className="full-article-body-holder"> 
                 
-                    <div className="full-article-body"> 
+                    <p className="full-article-body"> 
                         {article.body}
-                    </div>
+                    </p>
                 </div>
                 <div className="full-article-created_at-and-author-holder"> 
                     <div className="full-article-author-holder"> 

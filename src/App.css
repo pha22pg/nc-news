@@ -398,10 +398,15 @@
   display: grid;
   grid-template-columns: 1fr 5fr;
 }
-.comment-card-img{
+.comment-card-img-holder{
   background : grey;
   height :50px;
   width : 50px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  
+  
 }
 .comment-card-created_at{
   background : rgba(100,100,100,0.3);

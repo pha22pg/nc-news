@@ -1,12 +1,27 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
-import {getCommentsByArticleID} from '../api'
+import {getCommentsByArticleID, getAllUsersByName} from '../api'
 import AddComment from './AddComment';
 
 const Comments = ({comment_count, article_id}) => {
     const [comments, setComments]   = useState([])
-    const [loading, setLoading]     = useState(true)
+    const [loading, setLoading]     = useState(true);
+    const [users, setUsers] = useState([]);
 
+    const allUsernames = ['jessjelly', 'grumpy19', 
+    "cooljmessy", "happyamy2016" ,'tickle122', "weegembump"];
+    
+
+    useEffect(()=>{
+        getAllUsersByName(allUsernames)
+        .then((data)=>{
+            console.log(data);
+            
+            setUsers(data);
+            setLoading(false)
+        })
+        
+    }, [])
     useEffect(()=>{
         getCommentsByArticleID(article_id)
         .then((data)=>{
@@ -14,7 +29,24 @@ const Comments = ({comment_count, article_id}) => {
             console.log(data.comments)
             setComments(data.comments)
         })
+        
     }, [loading])
+
+    
+
+
+    const getURLFromUsername = (name) =>{
+        console.log(users)
+         let user_ = users.filter(userM => {
+             console.log(userM)
+           return userM.username === name
+                
+        });
+        console.log(user_[0].avatar_url)
+        // console.log(user_[0].avatar_url)
+        return user_[0].avatar_url;
+    }
+    
 
     return (<>
         
@@ -28,7 +60,11 @@ const Comments = ({comment_count, article_id}) => {
                     return(<>
                     <div className="comment-card">  
                         <div className="comment-card-second-column">
-                            <div className="comment-card-img"> </div>
+                            <div className="comment-card-img-holder"> 
+                            
+                            {/* {`${getURLFromUsername(comment.author)}`} */}
+                                <img className="user-profile-avatar-mini" src={`${getURLFromUsername(comment.author)}`}/>
+                            </div>
                         </div>
                         <div className="comment-card-second-column">
                             <div className="comment-card-author-and-created_at-holder">
