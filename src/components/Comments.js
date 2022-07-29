@@ -14,12 +14,13 @@ const Comments = ({comment_count, article_id}) => {
             console.log(data.comments)
             setComments(data.comments)
         })
-    }, [])
+    }, [loading])
 
     return (<>
+        
+        <div className="comment-count-holder">Comments: {comments.length}</div> 
+        <AddComment loading={loading} setLoading={setLoading} article_id={article_id}/>
         {loading && <div> Loading... </div> }
-        <div className="comment-count-holder">Comments: {comment_count}</div> 
-        <AddComment/>
         <div className="comment-card-holder">
             {!loading && <div> 
                 

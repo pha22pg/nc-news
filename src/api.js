@@ -61,3 +61,13 @@ export function getCommentsByArticleID(articleID){
          return data;
      }) 
 }
+
+export function submitCommentWithUserIDAndText(article_id, username, text){
+    return newsAPI.post(`articles/${article_id}/comments`, {
+        body: text,
+        username: username
+      }).then(({data})=>{
+        console.log("In the API / submitCommentWithUserIDAndText - responseData: ", data)
+        return data;
+    })
+}
