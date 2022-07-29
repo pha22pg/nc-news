@@ -1,9 +1,12 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route,useParams } from 'react-router-dom';
 import { useContext, useState, useEffect} from 'react';
-import { UserContext } from '../App.js';
+// import { UserContext } from '../App.js';
+import { UserContext } from './UserContext.js';
 import {Link} from "react-router-dom";
 import {getArticleByID} from '../api';
+import {incrementArticleVotesBy1, decrementArticleVotesBy1} from '../api';
+import Comments from './Comments';
 
 const Article = () => {
     const { user, setUser } = useContext(UserContext);
@@ -13,14 +16,60 @@ const Article = () => {
     const [article, setArticle ] = useState([]);
     const [loading, setLoading] = useState(true);
 
+    const [votes, setVotes] = useState(0);
+    const [upVoted, setUpVoted] = useState(false)
+    const [downVoted, setDownVoted] = useState(false)
+    const [voted, setVoted] = useState(false);
+    
+
     useEffect(()=>{
         getArticleByID(article_slug)
         .then((data)=>{
             console.log(data);
             setArticle(data)
             setLoading(false)
+            
         })
     }, [article_slug])
+
+    const incrementVotes = () => {
+       
+            setVotes((currentVote)=>{
+                
+                return currentVote + 1;
+            })
+            incrementArticleVotesBy1(article.article_id)
+                .catch((err)=>{
+                    console.log("Erm, something went wrong");
+                    setUpVoted(false);
+                    setVoted(false);
+                    setDownVoted(true);
+                });
+            setUpVoted(true);
+            setVoted(true);
+            setDownVoted(false);
+        
+    }
+    const decrementVotes = () => {
+    
+            setVotes((currentVote)=>{
+              
+                return currentVote - 1;
+            })
+            decrementArticleVotesBy1(article.article_id)
+                .catch((err)=>{
+                    console.log("Erm, something went wrong");
+                    setDownVoted(false);
+                    setVoted(false);
+                    setUpVoted(true);
+                });
+            setDownVoted(true);
+            setVoted(true);
+            setUpVoted(false);
+        
+
+        
+    }
 
     return (<div>
 
@@ -41,7 +90,7 @@ const Article = () => {
                 </div>
                 <div className="comment-and-votes-holder">
                     <h3 className="article-child-container article-comment_count-container" > Comments: {article.comment_count} </h3>
-                    <h3 className="article-child-container article-votes-container" > Votes: {article.votes} ID: {article.article_id}</h3>
+                    <h3 className="article-child-container article-votes-container" > Votes: {article.votes + votes} ID: {article.article_id}</h3>
                 </div>
             </div>
         </div>
@@ -77,8 +126,14 @@ const Article = () => {
                         {article.created_at.split('T')[0]}
                     </div>
                 </div>
+                <div className="full-article-votes-container">
+                    <div className="full-article-vote-count-container"> Votes: {article.votes + votes}</div>
+                    <div onClick={incrementVotes} className={`full-article-up-votes-container ${upVoted === true ? "selected" : null}`}></div>
+                    <div onClick={decrementVotes} className={`full-article-down-votes-container  ${downVoted === true ? "selected" : null}`}></div>
+                </div>
             </div>
-            
+       
+        <Comments comment_count={article.comment_count} article_id={article.article_id}/>
 
         </div>
         </>

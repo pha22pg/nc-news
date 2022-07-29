@@ -1,7 +1,8 @@
 import React from 'react';
 
 import { useContext} from 'react';
-import { UserContext } from '../App.js';
+// import { UserContext } from '../App.js';
+import { UserContext } from './UserContext.js';
 import {Link} from "react-router-dom";
 
 const ArticleCard = ({article, title}) => {
