@@ -18,12 +18,7 @@ const Users = () => {
     
 
     useEffect(()=>{
-        // getUserByName('jessjelly')
-        // .then((data)=>{
-        //     console.log(data);
-        //     setUser(data)
-        //     setLoading(false)
-        // })
+
         getAllUsersByName(allUsernames)
         .then((data)=>{
             console.log(data);

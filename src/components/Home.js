@@ -7,7 +7,7 @@ import { UserContext } from './UserContext.js';
 const Home = () => {
     const { user, setUser } = useContext(UserContext);
     return <div>
-      <h2>HOME {user}</h2>
+      <h2>HOME </h2>
     </div>
 };
 

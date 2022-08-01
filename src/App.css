@@ -398,10 +398,15 @@
   display: grid;
   grid-template-columns: 1fr 5fr;
 }
-.comment-card-img{
+.comment-card-img-holder{
   background : grey;
   height :50px;
   width : 50px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  
+  
 }
 .comment-card-created_at{
   background : rgba(100,100,100,0.3);
@@ -436,4 +441,26 @@
 .comment-card-votes-and-comment_id-holder{
   display : flex;
   justify-content: flex-end;
+}
+
+
+/* COMMENT CARD SUBMIT BUTTON */
+
+.add-comment-card{
+  background : rgba(100,100,100,0.3);
+  margin : 5px;
+  padding : 10px;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+}
+
+.add-comment-card-submit-button-holder{
+  display:flex;
+  justify-content: flex-end ;
+}
+
+.add-comment-card-submit-button{
+  background : rgba(100,100,100,0.3);
+  border :  rgba(100,100,100,0.3) 1px solid;
+  margin: 5px;
 }

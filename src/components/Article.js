@@ -7,6 +7,7 @@ import {Link} from "react-router-dom";
 import {getArticleByID} from '../api';
 import {incrementArticleVotesBy1, decrementArticleVotesBy1} from '../api';
 import Comments from './Comments';
+import ArticleFilter from './ArticleFilter';
 
 const Article = () => {
     const { user, setUser } = useContext(UserContext);
@@ -73,10 +74,14 @@ const Article = () => {
 
     return (<div>
 
-  
+        
         {loading && <div> Loading...</div>}
         {!loading && 
         <>
+        
+        <div className="article-dropdown-sort-menu-holder"> 
+            <div className="article-dropdown-sort-menu"> </div>
+        </div>
         <div className="article-preview-container">
 
             <div className="article-img-holder"> 
@@ -114,9 +119,9 @@ const Article = () => {
                 </div>
                 <div className="full-article-body-holder"> 
                 
-                    <div className="full-article-body"> 
+                    <p className="full-article-body"> 
                         {article.body}
-                    </div>
+                    </p>
                 </div>
                 <div className="full-article-created_at-and-author-holder"> 
                     <div className="full-article-author-holder"> 

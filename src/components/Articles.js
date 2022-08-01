@@ -6,7 +6,7 @@ import { UserContext } from './UserContext.js';
 
 import {getArticleByID, getListOfArticles} from '../api';
 import ArticleCard from './ArticleCard'
-
+import ArticleFilter from './ArticleFilter.js';
 const Articles = ({allArticles, setAllArticles}) => {
 
 
@@ -21,17 +21,15 @@ const Articles = ({allArticles, setAllArticles}) => {
             setAllArticles(data)
             setLoading(false);
         })
-        getArticleByID(1)
-        .then((data)=>{
-            console.log(data);
-        })
     }, [])
 
 
 
     return <div>
       <h2 className="page-header-container">Articles</h2>
+      <ArticleFilter allArticles= {allArticles} setAllArticles={setAllArticles}/>
         {loading && <div> Loading...</div>}
+
         <div className ="articles-holder">
         {!loading && 
         
