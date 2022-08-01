@@ -7,7 +7,7 @@ const newsAPI = axios.create({
 
 export function getListOfArticles(){
     return newsAPI.get(`articles`).then(({data})=>{
-        console.log("In the API / getArticles function - data: ", data)
+        
         return data.articles
     }) 
 }
@@ -15,7 +15,7 @@ export function getListOfArticles(){
 
 export function getArticleByID(id){
     return newsAPI.get(`articles/${id}`).then(({data})=>{
-        console.log("In the API / getArticleByID function - data: ", data)
+     
         return data.article;
     }) 
 }
@@ -23,7 +23,7 @@ export function getArticleByID(id){
 
 export function getArticlesByTopic(topic){
     return newsAPI.get(`articles?topic=${topic}`).then(({data})=>{
-       // console.log("In the API / getArticlesByTopic function - data: ", data)
+    
         return data;
     }) 
 }
@@ -70,4 +70,34 @@ export function submitCommentWithUserIDAndText(article_id, username, text){
         console.log("In the API / submitCommentWithUserIDAndText - responseData: ", data)
         return data;
     })
+}
+
+
+export function getArticlesByDate(order){
+    // if(order===undefined){
+    //     order="desc";
+    // }
+    return newsAPI.get(`articles?sort_by=created_at&&order${order}`).then(({data})=>{
+        console.log("In the API / getArticlesByDate function - data: ", data)
+        return data;
+    }) 
+}
+export function getArticlesByVotes(order){
+    // if(order===undefined){
+    //     order="desc";
+    // }
+    return newsAPI.get(`articles?sort_by=votes&&order=${order}`).then(({data})=>{
+        console.log("In the API / getArticlesByCommentVotes function - data: ", data)
+        return data;
+    }) 
+}
+
+export function getArticlesByCommentCount(order){
+    // if(order===undefined){
+    //     order="desc";
+    // }
+    return newsAPI.get(`articles?sort_by=comment_count&&order=${order}`).then(({data})=>{
+        console.log("In the API / getArticlesByCommentCount function - data: ", data)
+        return data;
+    }) 
 }
